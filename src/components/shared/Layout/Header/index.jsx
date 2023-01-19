@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import InputSection from "@/components/shared/Layout/Header/InputSection";
 
 const Header = () => {
     const [direction, setDirection] = useState(true)
@@ -31,6 +32,7 @@ const Header = () => {
               ${direction ? `top-0` : `-top-20`}    
             `}>
                 <Image src="/images/amazon.png" width={100} height={80} alt="Logo" />
+                <InputSection />
             </header>
         </>
     )
