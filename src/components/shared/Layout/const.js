@@ -1,18 +1,14 @@
 const CATEGORIES = [
-    { name: "Echo and Alexa", id: 1 },
-    { name: "Kindle", id: 2 },
-    { name: "Books", id: 3 },
-    { name: "Electronics", id: 4 },
-    { name: "Home and Garden", id: 5 },
-    { name: "Fashion", id: 6 },
-    { name: "Health and Beauty", id: 7 },
-    { name: "Automotive", id: 8 },
-    { name: "Sport and Tourism", id: 9 },
-    { name: "Games", id: 10 },
-    { name: "Film and Music", id: 11 },
-    { name: "Animals", id: 12 },
-    { name: "Hobby", id: 13 },
-    { name: "Gift Cards", id: 14 },
+  { name: 'Books', id: 1 },
+  { name: 'Electronics', id: 2 },
+  { name: 'Home and Garden', id: 3 },
+  { name: 'Fashion', id: 4 },
+  { name: 'Film and Music', id: 5 },
+  { name: 'Sport and Tourism', id: 6 },
+  { name: 'Games', id: 7 },
+  { name: 'Animals', id: 8 },
+  { name: 'Hobby', id: 9 },
+  { name: 'Gift Cards', id: 10 },
 ]
 
 export default CATEGORIES

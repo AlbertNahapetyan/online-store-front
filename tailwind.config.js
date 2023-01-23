@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'orange-arrows': "url(/images/OrangeBG.jpg)",
+      },
       spacing: {
         76: '18.75rem',
       },
