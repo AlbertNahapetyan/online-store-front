@@ -9,6 +9,9 @@ module.exports = {
       backgroundImage: {
         'orange-arrows': "url(/images/OrangeBG.jpg)",
       },
+      margin: {
+        '1/5': '20%'
+      },
       spacing: {
         76: '18.75rem',
       },

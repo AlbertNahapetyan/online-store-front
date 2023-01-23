@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
             <Header />
             <div className="flex w-full">
                 <Navbar />
-                <div className="mt-20 ml-76 pl-6 pr-4 py-4 w-4/5">
+                <div className="mt-20 ml-1/5 pl-6 pr-4 py-4 w-4/5">
                     { children }
                 </div>
             </div>
