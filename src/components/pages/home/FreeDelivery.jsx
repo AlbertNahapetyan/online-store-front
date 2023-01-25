@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import BlockLink from '@/components/shared/BlockLink'
 
 const FreeDelivery = () => {
   return (
@@ -11,11 +11,11 @@ const FreeDelivery = () => {
         Don&apos;t miss it out! Only today, get free Next Day <br />
         delivery on all of your orders
       </p>
-      <Link href="/products">
+      <BlockLink href="/products">
         <button className="w-48 p-2 rounded-3xl bg-white text-orange-350">
           Browse products
         </button>
-      </Link>
+      </BlockLink>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import CATEGORIES from '../../const'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 
 const DropDown = ({ isOpen }) => {
   return (
@@ -15,6 +16,10 @@ const DropDown = ({ isOpen }) => {
       </ul>
     </>
   )
+}
+
+DropDown.propTypes = {
+  isOpen: PropTypes.bool,
 }
 
 export default DropDown

@@ -2,6 +2,7 @@ import { IoNotificationsSharp } from 'react-icons/io5'
 import { AiOutlineShoppingCart, AiFillHeart } from 'react-icons/ai'
 import { BiHeart } from 'react-icons/bi'
 import { useToggler } from '@/hooks/useToggler'
+import clsx from 'clsx'
 
 const RightPart = () => {
   const [heart, { toggle: toggleHeart }] = useToggler(false)
@@ -11,9 +12,9 @@ const RightPart = () => {
     <div className="ml-auto flex items-center justify-center h-full">
       <div className="mx-5 hover:cursor-pointer" onClick={toggleHeart}>
         {heart ? (
-          <AiFillHeart color="orange" size="20px" />
+          <AiFillHeart color="orange" size={20} />
         ) : (
-          <BiHeart color="white" size="20px" />
+          <BiHeart color="white" size={20} />
         )}
       </div>
       <div className="h-12 rounded-md bg-orange-350 p-4 flex items-center justify-center mx-5 hover:cursor-pointer relative">
@@ -24,9 +25,11 @@ const RightPart = () => {
       </div>
       <div
         onClick={toggleNotification}
-        className={`mx-5 hover:cursor-pointer ${
-          notification ? 'text-orange-350' : 'text-white'
-        }`}
+        className={clsx(
+          'mx-5 hover:cursor-pointer',
+          { 'text-orange-350': notification },
+          { 'text-white': !notification }
+        )}
       >
         <IoNotificationsSharp />
       </div>

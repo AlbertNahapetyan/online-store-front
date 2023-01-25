@@ -9,7 +9,12 @@
 }
 
 body {
-  background-color: #f2f2f4;
+  background-color: #F2F2F4;
+}
+
+.link, a {
+  display: block;
+  width: fit-content;
 }
 
 
