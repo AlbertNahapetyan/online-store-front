@@ -13,7 +13,13 @@ const Categories = () => {
       >
         <span className="text-white">All categories</span>
         <div className="ml-2 h-fit">
-          <Image width={10} height={10} src="/images/vector.svg" alt="vector" />
+          <Image
+            placeholder="blur"
+            width={10}
+            height={10}
+            src="/images/vector.svg"
+            alt="vector"
+          />
         </div>
       </div>
       {/*<DropDown isOpen={isOpen} />*/}

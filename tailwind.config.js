@@ -18,6 +18,7 @@ module.exports = {
         76: '18.75rem',
       },
       colors: {
+        'gray-50': '#d1d2d4',
         'aqua-150': '#2596be',
         'gray-150': '#838383',
         'black-250': '#232f3e',
@@ -25,6 +26,9 @@ module.exports = {
         'gray-350': '#2c3c4b',
         'gray-450': '#223040',
         'orange-350': '#ff9901',
+      },
+      height: {
+        '1/2v': '70vh',
       },
     },
   },

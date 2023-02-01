@@ -6,6 +6,8 @@ import clsx from 'clsx'
 const BlockLink = ({ href, children }) => {
   const firstChild = Children.toArray(children)[0]
   let { className } = firstChild.props
+  if (!className)
+    throw new Error('The first child dont have property className')
   className = className.split(' ')
 
   const widthRegex = /^w-[0-9]+$/g

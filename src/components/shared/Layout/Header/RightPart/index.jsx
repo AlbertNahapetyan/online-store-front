@@ -2,27 +2,37 @@ import { IoNotificationsSharp } from 'react-icons/io5'
 import { AiOutlineShoppingCart, AiFillHeart } from 'react-icons/ai'
 import { BiHeart } from 'react-icons/bi'
 import { useToggler } from '@/hooks/useToggler'
+import { useRouter } from 'next/router'
+import { useRecoilValue } from 'recoil'
+import { BasketItemsCount } from '@/storage/atoms'
+import Link from 'next/link'
 import clsx from 'clsx'
 
 const RightPart = () => {
-  const [heart, { toggle: toggleHeart }] = useToggler(false)
+  const { asPath } = useRouter()
+  const heart = asPath === '/favorites'
   const [notification, { toggle: toggleNotification }] = useToggler(false)
+  const basketItemsCount = useRecoilValue(BasketItemsCount)
 
   return (
     <div className="ml-auto flex items-center justify-center h-full">
-      <div className="mx-5 hover:cursor-pointer" onClick={toggleHeart}>
-        {heart ? (
-          <AiFillHeart color="orange" size={20} />
-        ) : (
-          <BiHeart color="white" size={20} />
-        )}
-      </div>
-      <div className="h-12 rounded-md bg-orange-350 p-4 flex items-center justify-center mx-5 hover:cursor-pointer relative">
-        <AiOutlineShoppingCart color="black" />
-        <div className="w-5 h-5 rounded-full -top-1 text-sm -right-1 absolute bg-white flex items-center justify-center">
-          <span>1</span>
+      <Link href={heart ? '/' : '/favorites'}>
+        <div className="mx-5 hover:cursor-pointer">
+          {heart ? (
+            <AiFillHeart color="orange" size={20} />
+          ) : (
+            <BiHeart color="white" size={20} />
+          )}
         </div>
-      </div>
+      </Link>
+      <Link href="/basket">
+        <div className="h-12 rounded-md bg-orange-350 p-4 flex items-center justify-center mx-5 hover:cursor-pointer relative">
+          <AiOutlineShoppingCart color="black" />
+          <div className="w-5 h-5 rounded-full -top-1 text-sm -right-1 absolute bg-white flex items-center justify-center">
+            <span>{basketItemsCount}</span>
+          </div>
+        </div>
+      </Link>
       <div
         onClick={toggleNotification}
         className={clsx(
