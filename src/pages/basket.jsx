@@ -6,6 +6,7 @@ import {
   BasketItemsCount,
 } from '@/storage/atoms'
 import Product from '@/components/shared/Product'
+import {useEffect} from "react";
 
 const Basket = () => {
   const [price, setPrice] = useRecoilState(BasketItemsPrice)
@@ -13,6 +14,10 @@ const Basket = () => {
   const [count, setCount] = useRecoilState(BasketItemsCount)
   const ids = Object.keys(items)
   const products = Object.values(items)
+
+  useEffect(() => {
+      console.log(items)
+  }, [items])
 
   const clear = () => {
     setPrice(0)
@@ -45,7 +50,6 @@ const Basket = () => {
             rating={product.rating}
             price={product.price}
             companyId={product.companyId}
-            basketItem={true}
           />
         ))}
       </ul>

@@ -20,9 +20,7 @@ const Product = ({
   company,
   rating,
   hotDeal,
-  companyId,
-  favoriteItem,
-    basketItem
+  companyId
 }) => {
   const [favoriteItems, setFavoriteItems] = useRecoilState(FavoriteItems)
   const [basketItems, setBasketItems] = useRecoilState(BasketItems)
@@ -42,22 +40,6 @@ const Product = ({
     companyId,
   }
 
-  const deleteFavoriteItem = (id) => {
-    const obj = { ...favoriteItems }
-    delete obj[id]
-    setFavoriteItems(obj)
-  }
-
-  const deleteBasketItem = (id) => {
-    const obj = { ...favoriteItems }
-    setBasketItemsCount(prev => prev - 1)
-    setBasketItemsPrice(prev => prev - price)
-    delete obj[id]
-    setBasketItems(obj)
-  }
-
-  const deleteItem = favoriteItem ? deleteFavoriteItem : deleteBasketItem
-
   const toggleFavorite = () => {
     if (heart) {
       const filteredItems = { ...favoriteItems }
@@ -70,9 +52,11 @@ const Product = ({
 
   const toggleBasket = () => {
     if (basket) {
-      const filteredItems = { ...favoriteItems }
-      delete filteredItems[id]
-      setBasketItems(filteredItems)
+      setBasketItems(prev => {
+        const filteredItems = { ...prev };
+        delete filteredItems[id];
+        return filteredItems
+      })
       setBasketItemsPrice((prev) => prev - Number(price))
       setBasketItemsCount((prev) => prev - 1)
     } else {
@@ -110,18 +94,6 @@ const Product = ({
               />
             )}
           </div>
-          {(favoriteItem || basketItem) && (
-            <div
-              onClick={() => deleteItem(id)}
-              className="absolute flex items-center justify-center z-30 top-9 right-2.5"
-            >
-              <TiDeleteOutline
-                size={22}
-                color="black"
-                className="hover:cursor-pointer"
-              />
-            </div>
-          )}
           <div
             onClick={toggleBasket}
             className="absolute flex items-center justify-center z-30 bottom-2.5 right-2.5"
@@ -168,14 +140,10 @@ Product.propTypes = {
   company: PropTypes.string.isRequired,
   rating: PropTypes.string.isRequired,
   hotDeal: PropTypes.bool,
-  favoriteItem: PropTypes.bool,
-  basketItem: PropTypes.bool,
 }
 
 Product.defaultProps = {
   hotDeal: false,
-  favoriteItem: false,
-  basketItem: false,
 }
 
 export default Product

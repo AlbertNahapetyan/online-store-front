@@ -25,7 +25,6 @@ const Favorites = () => {
             rating={product.rating}
             price={product.price}
             companyId={product.companyId}
-            favoriteItem={true}
           />
         ))}
       </ul>
